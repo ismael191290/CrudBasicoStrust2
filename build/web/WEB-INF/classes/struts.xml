@@ -1,0 +1,26 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="login" class="isma.beans.controller.PersonaController">
+            <result name="SUCCESS">/views/sucess.jsp</result>
+            <result name="ERROR">/views/error.jsp</result>
+        </action>
+        
+        <action name="consulta" class="isma.beans.controller.PersonaController" method="listPersonas">
+            <result name="SUCCESS">/views/listPerona.jsp</result>
+            <result name="ERROR">/views/error.jsp</result>
+        </action>
+        
+        <action name="editUser" method="editPersona" class="isma.beans.controller.PersonaController">
+            <result name="SUCCESS">/views/listPerona.jsp</result>
+        </action>
+        <action name="deleteUser" method="deletePersona" class="isma.beans.controller.PersonaController">
+            <result name="SUCCESS" type="redirect">consulta</result>
+        </action>
+        
+    </package>
+</struts>
